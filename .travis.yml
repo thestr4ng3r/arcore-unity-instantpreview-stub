@@ -1,0 +1,18 @@
+language: c
+sudo: false
+compiler: gcc
+
+script:
+- mkdir build && cd build
+- cmake ..
+- make
+- cd ..
+
+deploy:
+  provider: releases
+  api_key:
+    secure: QKYzhpbhqkzSjK0P2h5kPFOOKVe8hmOmkTLeleoeZS6fvSxFCwWW416SXs+wVauqChtOd7i4Jilbpc4ZlxblZKLwzXB00jfj4BQwhapEje1ons7uhbszy5jI/eEA6nC+aL0k0MnsPRAEHvYABT3IzzwROZHFTFNg7oN6MaGQKDAqh7G4l0p3N9G6JS12QnPQl8E71jKJ2dM/cFU9TgGyschV1irAtgoE8fZyZcHkXrXBo2GUq6MT27RCktxESTJDcgNjhVK9vtBW8pCoDCrNPhQc1DReqMlH41qNyQmiP6E4n1j0tu30YHgI4EmXzCriCJwLwf3kQ9GfoG3ljkaSDYpUD2sPVHrjCtgcPp1KgNa+NWFjYF37DGX8AHSdbQGrLhaV1dzvHjkMGB3xT534fBzgw3dH+fnXNmZe/9aNelRPFSCn0hQh/A4mabRjPCxAl4d53WAyd6WHKLlCgqUriSAFRVVmtNNYCPDAHKU6LaiQQCWcPeB5am46voMY1qoLH8PaXQUYuLikGBrS2znGm+wGSykyu9CX2ou59cChQI7LyW9/0+Eg9fO6tE0HQp/Gks2qL7Ye7eINZXV1b9poCBCWC3TUZVcK27ScOBvlhmI6XWvXBuGxFGiAVsMpsjtG7KpJEx0V7F8RG3ZR5bquhvr0fxj4Q3UEEF7CKJPa3Ok=
+  file: build/libinstant_preview_unity_plugin.so
+  skip_cleanup: true
+  on:
+    tags: true
